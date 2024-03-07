@@ -6,9 +6,6 @@ import useWindowSize from "../../hooks/useWindowSize";
 
 import { ButtonsBgColor, HeaderType } from "../../Types/enums";
 
-import exitIcon from "../../assets/icons/exit.svg";
-import classNames from "classnames/bind.js";
-
 interface HeaderProps {
    type: HeaderType;
 }
