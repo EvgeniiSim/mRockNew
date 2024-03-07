@@ -1,0 +1,139 @@
+@import '/src/index.scss';
+
+.cabinet {
+   &__inner {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: em(120);
+      padding-bottom: em(60);
+
+      @media screen and (max-width:$xl) {
+         display: block;
+      }
+
+      @media screen and (max-width:$sm) {
+         padding-bottom: em(25);
+      }
+   }
+
+   &__data {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      @media screen and (max-width:$xl) {
+         gap: em(20);
+      }
+   }
+
+   &__title {
+      text-align: center;
+      font-size: em(120);
+      color: $green;
+      rotate: -4deg;
+      margin-bottom: em(20, 120);
+      line-height: 1;
+
+      @media screen and (max-width:$xl) {
+         margin-bottom: 0;
+         font-size: em(90);
+      }
+
+      @media screen and (max-width:$sm) {
+         font-size: em(60);
+      }
+
+   }
+
+   &__form {
+      width: 100%;
+      max-width: em(403);
+      display: flex;
+      flex-direction: column;
+      gap: em(16);
+   }
+
+   &__formSelect,
+   &__formInput {
+      width: 100%;
+      color: $white !important;
+
+      & svg {
+         color: $white;
+      }
+   }
+
+   &__selectLabel {
+      color: $white !important;
+   }
+
+   &__item {
+      border: rem(2) solid $pink;
+      border-radius: em(100);
+      padding: em(19.5) em(32);
+      line-height: 1;
+
+      @media screen and (max-width:$sm) {
+         padding: em(17) em(24);
+         font-size: em(14);
+      }
+   }
+
+   &__changeLink {
+      text-transform: uppercase;
+      margin: 0 auto;
+   }
+
+   &__person {
+      position: relative;
+      flex-basis: em(457);
+
+      @media screen and (max-width:$xll) {
+         flex-shrink: 1;
+      }
+
+      @media screen and (max-width:$xl) {
+         flex-basis: auto;
+      }
+
+   }
+
+   &__personImg {
+      width: 100%;
+
+      @media screen and (max-width:$xl) {
+         display: block;
+         width: 90%;
+         margin: 0 auto
+      }
+
+      @media screen and (max-width:$x-sm) {
+         width: 100%;
+      }
+   }
+
+   &__personDecor {
+      position: absolute;
+      top: -5%;
+      left: 30%;
+      width: em(108);
+
+      @media screen and (max-width:$sm) {
+         width: em(71);
+         top: -3%;
+      }
+   }
+
+   &__personLike {
+      position: absolute;
+      bottom: 7%;
+      left: 17%;
+      display: flex;
+      align-items: center;
+      gap: em(7);
+      cursor: pointer;
+   }
+}

@@ -1,0 +1,35 @@
+@import '/src/index.scss';
+
+.header {
+   position: absolute;
+   top: 0;
+   left: 0;
+   z-index: 10;
+   width: 100%;
+   padding-top: em(20);
+
+   &__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+   }
+
+   &__logo {
+      display: flex;
+      align-items: center;
+      gap: em(13);
+
+      & img {
+         width: em(85);
+         object-fit: contain;
+
+         @media screen and (max-width:$x-sm) {
+            width: em(72);
+         }
+      }
+   }
+
+   &__logoDate {
+      width: em(187);
+   }
+}

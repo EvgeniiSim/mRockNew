@@ -1,0 +1,97 @@
+@import './mixins.scss';
+
+@include font('Mega Sans S', 'MegaSansS-Bold', 700, 'normal');
+@include font('Mega Sans S', 'MegaSansS-Regular', 400, 'normal');
+@include font('ONYRealist', 'ONYRealist-Italic', 700, 'italic');
+@include font('ONYRealist', 'ONYRealist-Regular', 400, 'normal');
+@include font('23 secondsto midnight', '23-seconds-to-midnight', 400, 'normal');
+
+///// Colors variables
+$white: #F1F1F1;
+$black: #131313;
+$pink: #8654CC;
+$green: #C3F598;
+$pinkLight: #EDCFFC;
+$pinkBold: #6933B0;
+$red: #C63333;
+$yellow: #FFE3C7;
+$gray: #C9C9C9;
+
+///// Fonts variables 
+$MegaSansS: 'Mega Sans S';
+$ONYReatlist: 'ONYRealist';
+$Midnight: '23 secondsto midnight';
+
+///// Font-Size variables
+$h1: em(40);
+$h2: em(32);
+$h3: em(50);
+$body1: em(24);
+$body2: em(16);
+$body3: em(14);
+
+///// BreakPoints
+$xll: em(1200);
+$xl: em(991);
+$md: em(768);
+$sm: em(576);
+$x-sm: em(420);
+
+////// Custom classes
+.title {
+   font-family: $Midnight;
+   text-transform: uppercase;
+}
+
+.select {
+   font-family: $MegaSansS !important;
+   border: rem(2) solid $pink !important;
+   border-radius: rem(100) !important;
+   min-height: em(56);
+
+   @media screen and (max-width:$sm) {
+      min-height: em(49);
+   }
+}
+
+.form {
+
+   & input {
+      border: rem(2) solid $pink ;
+      border-radius: rem(100);
+      min-height: em(56);
+      padding: em(17.5) em(32);
+      background-color: transparent;
+      font-size: inherit;
+      color: $white;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {}
+
+      @media screen and (max-width:$sm) {
+         padding: em(15) em(24);
+         min-height: em(49);
+      }
+   }
+
+   @media screen and (max-width:$sm) {
+      font-size: em(14);
+   }
+}
+
+
+///// Buttons hover 
+.btn {
+
+   &.green:hover {
+      color: $black;
+   }
+
+   &.pink {
+      color: $black;
+   }
+
+   &.pink:hover {
+      color: $white;
+   }
+}

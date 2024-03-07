@@ -1,0 +1,16 @@
+@import '/src/index.scss';
+
+.cabinet {
+   background-color: #000;
+   padding-top: em(120);
+   min-height: 100vh;
+
+   &__background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      opacity: 0.1;
+   }
+}

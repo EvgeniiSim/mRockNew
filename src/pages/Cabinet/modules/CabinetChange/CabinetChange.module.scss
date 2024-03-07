@@ -1,0 +1,72 @@
+@import '/src/index.scss';
+
+.cabinet {
+   &__inner {
+      position: relative;
+      z-index: 10;
+      max-width: em(800);
+      padding-bottom: em(60);
+      margin: 0 auto;
+
+      @media screen and (max-width:$sm) {
+         padding-bottom: em(25);
+      }
+   }
+
+   &__title {
+      text-align: center;
+      font-size: em(120);
+      color: $green;
+      rotate: -4deg;
+      margin-bottom: em(40, 120);
+      line-height: 1;
+
+      @media screen and (max-width:$xl) {
+         font-size: em(90);
+      }
+
+      @media screen and (max-width:$md) {
+         font-size: em(60);
+      }
+
+   }
+
+   &__form {
+      display: grid;
+      width: em(524);
+      grid-template-columns: repeat(2, 1fr);
+      gap: em(24);
+      margin: 0 auto em(24) auto;
+   }
+
+   &__formItem {
+
+      & label {
+         display: block;
+         padding-left: em(31);
+         margin-bottom: em(8);
+
+         @media screen and (max-width:$sm) {
+            padding-left: em(25);
+         }
+      }
+   }
+
+   &__formSelect,
+   &__formInput {
+      width: 100%;
+      color: $white !important;
+
+      & svg {
+         color: $white;
+      }
+   }
+
+   &__selectLabel {
+      color: $white !important;
+   }
+
+   &__formSubmit {
+      margin: 0 auto;
+   }
+}
