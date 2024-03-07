@@ -13,19 +13,18 @@ import {
 import Cabinet from "./pages/Cabinet/Cabinet.tsx";
 import CabinetProfile from "./pages/Cabinet/modules/CabinetProfile/CabinetProfile.tsx";
 import CabinetChange from "./pages/Cabinet/modules/CabinetChange/CabinetChange.tsx";
+import Home from "./pages/Home/Home.tsx";
 
 const router = createBrowserRouter(
    createRoutesFromElements(
       <Route path="/" element={<App />}>
+         <Route index element={<Home />} />
          <Route path="cabinet" element={<Cabinet />}>
             <Route index element={<CabinetProfile />} />
             <Route path="change" element={<CabinetChange />} />
          </Route>
       </Route>
-   ),
-   {
-      basename: "/mRockNew",
-   }
+   )
 );
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
