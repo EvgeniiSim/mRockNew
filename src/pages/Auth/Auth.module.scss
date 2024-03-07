@@ -61,8 +61,8 @@
 
       &Bg1 {
          position: absolute;
-         top: em(0);
-         left: em(-80);
+         top: em(-100);
+         left: em(-70);
          width: em(450);
          height: em(383);
          opacity: 0.23;
@@ -93,7 +93,7 @@
       &Bg2 {
          position: absolute;
          z-index: -1;
-         top: em(30);
+         top: em(-100);
          right: em(-50);
          width: em(408);
          height: em(353);
