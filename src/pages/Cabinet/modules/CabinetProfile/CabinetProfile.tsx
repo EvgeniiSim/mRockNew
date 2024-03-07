@@ -4,7 +4,7 @@ import Title from "../../../../components/UI/Title/Title";
 import person from "../../../../assets/images/cabinet/person.png";
 import squarePink from "../../../../assets/icons/decor/squarePink.svg";
 
-import { ButtonsbgColor, TitleVariants } from "../../../../Types/enums";
+import { ButtonsBgColor, TitleVariants } from "../../../../Types/enums";
 import { ButtonsBgVariants } from "../../../../Types/enums";
 
 import styles from "./CabinetProfile.module.scss";
@@ -59,7 +59,7 @@ const CabinetProfile = () => {
                <Button
                   className={styles.cabinet__changeLink}
                   to="change"
-                  bgColor={ButtonsbgColor.green}
+                  bgColor={ButtonsBgColor.green}
                   bgType={ButtonsBgVariants.narrow}>
                   Редактировать
                </Button>

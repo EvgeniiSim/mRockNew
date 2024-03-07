@@ -1,0 +1,173 @@
+@import '/src/index.scss';
+
+.content {
+   display: flex;
+   overflow: hidden;
+
+   @media screen and (max-width:$xl) {
+      flex-direction: column;
+   }
+
+   &>* {
+      flex-basis: 50%;
+      flex-shrink: 0;
+   }
+
+}
+
+.left {
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: fit-content;
+   padding-top: em(100);
+   min-height: 100vh;
+
+   @media screen and (max-width:$xl) {
+      min-height: unset;
+      padding-top: em(234);
+      margin-bottom: em(100);
+   }
+
+   @media screen and (max-width:$sm) {
+      padding-top: em(154);
+      margin-bottom: em(50);
+   }
+
+   &__bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      min-height: 100vh;
+      object-fit: cover;
+      filter: grayscale(1) brightness(0.5);
+   }
+
+   &__text {
+      position: relative;
+      z-index: 10;
+      max-width: em(448);
+      margin: 0 auto;
+
+      @media screen and (max-width:$sm) {
+         max-width: em(310);
+      }
+
+      @media screen and (max-width:$x-sm) {
+         max-width: em(260);
+      }
+
+      &Bg1 {
+         position: absolute;
+         top: em(0);
+         left: em(-80);
+         width: em(450);
+         height: em(383);
+         opacity: 0.23;
+         filter: saturate(7);
+
+         @media screen and (max-width:$xl) {
+            top: em(-50);
+            left: em(-50);
+            width: em(350);
+            height: em(283);
+         }
+
+         @media screen and (max-width:$sm) {
+            top: em(-60);
+            left: em(-40);
+            width: em(300);
+            height: em(233);
+         }
+
+         @media screen and (max-width:$x-sm) {
+            top: em(-50);
+            left: em(-50);
+            width: em(250);
+            height: em(203);
+         }
+      }
+
+      &Bg2 {
+         position: absolute;
+         z-index: -1;
+         top: em(30);
+         right: em(-50);
+         width: em(408);
+         height: em(353);
+         opacity: 0.3;
+         filter: contrast(140);
+         object-fit: contain;
+
+         @media screen and (max-width:$xl) {
+            top: em(-50);
+            right: em(-30);
+            width: em(358);
+            height: em(303);
+         }
+
+         @media screen and (max-width:$sm) {
+            top: em(-60);
+            right: em(-40);
+            width: em(288);
+            height: em(233);
+         }
+
+         @media screen and (max-width:$x-sm) {
+            right: em(-50);
+         }
+
+      }
+   }
+
+   &__textTitle {
+      position: relative;
+      z-index: 15;
+      text-align: center;
+      font-size: $h4;
+      margin-bottom: em(16, 40);
+
+      @media screen and (max-width:$xl) {
+         font-size: em(35);
+      }
+
+      @media screen and (max-width:$sm) {
+         font-size: em(24);
+      }
+   }
+
+   &__button {
+      position: relative;
+      z-index: 15;
+      margin: 0 auto;
+   }
+
+}
+
+.right {
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   min-height: 100vh;
+   height: fit-content;
+
+   @media screen and (max-width:$xl) {
+      display: block;
+      min-height: unset;
+      padding-top: em(54);
+   }
+
+   &__bg {
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      width: 105%;
+      transform: translateX(-2%);
+      min-height: 100vh;
+      filter: brightness(5);
+   }
+}

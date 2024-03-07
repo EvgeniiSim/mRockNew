@@ -7,14 +7,14 @@ import classNames from "classnames";
 
 import { ButtonsTags } from "../../../Types/enums";
 import { ButtonsBgVariants } from "../../../Types/enums";
-import { ButtonsbgColor } from "../../../Types/enums";
+import { ButtonsBgColor } from "../../../Types/enums";
 
 import styles from "./Buttton.module.scss";
 
 interface ButtonProps {
    children: string;
    to: string;
-   bgColor: ButtonsbgColor;
+   bgColor: ButtonsBgColor;
    tagType?: ButtonsTags;
    form?: string;
    bgType?: ButtonsBgVariants;
@@ -44,9 +44,9 @@ const Button = ({
    ///// Определяем цвет текста
    const btnColor = classNames({
       btn: true,
-      green: bgColor === ButtonsbgColor.green,
-      pink: bgColor === ButtonsbgColor.pink,
-      white: bgColor === ButtonsbgColor.white,
+      green: bgColor === ButtonsBgColor.green,
+      pink: bgColor === ButtonsBgColor.pink,
+      white: bgColor === ButtonsBgColor.white,
    });
 
    ///// Пересчитываем font-size в em

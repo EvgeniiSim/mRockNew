@@ -3,15 +3,21 @@ import background from "../../assets/images/cabinet/bg.png";
 import { Outlet } from "react-router-dom";
 
 import styles from "./Cabinet.module.scss";
+import Header from "../../components/Header/Header";
+
+import { HeaderType } from "../../Types/enums";
 
 const Cabinet = () => {
    return (
-      <div className={styles.cabinet}>
-         <div className="container">
-            <Outlet />
+      <>
+         <Header type={HeaderType.cabinet} />
+         <div className={styles.cabinet}>
+            <div className="container">
+               <Outlet />
+            </div>
+            <img src={background} className={styles.cabinet__background}></img>
          </div>
-         <img src={background} className={styles.cabinet__background}></img>
-      </div>
+      </>
    );
 };
 

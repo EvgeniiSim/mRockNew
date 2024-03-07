@@ -39,31 +39,49 @@
       margin: 0 auto em(24) auto;
    }
 
-   &__formItem {
+   &__formLabel {
+      display: block;
+      padding-left: em(31);
+      margin-bottom: em(8);
 
-      & label {
+      @media screen and (max-width:$sm) {
+         padding-left: em(25);
+      }
+   }
+
+   &__formFile {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+   }
+
+   &__fileLabel {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: em(11) em(32);
+      gap: em(15);
+      border: rem(2) solid $pink;
+      border-radius: rem(30);
+      color: $gray;
+      min-height: em(56);
+      transition: $transition;
+      cursor: pointer;
+
+      &>span {
          display: block;
-         padding-left: em(31);
-         margin-bottom: em(8);
-
-         @media screen and (max-width:$sm) {
-            padding-left: em(25);
-         }
+         width: 100px;
+         flex-grow: 1;
+         overflow: hidden;
+         white-space: nowrap;
+         text-overflow: ellipsis;
       }
-   }
 
-   &__formSelect,
-   &__formInput {
-      width: 100%;
-      color: $white !important;
-
-      & svg {
-         color: $white;
+      @media screen and (max-width:$sm) {
+         padding: em(12) em(24);
+         min-height: em(49);
       }
-   }
-
-   &__selectLabel {
-      color: $white !important;
    }
 
    &__formSubmit {

@@ -2,9 +2,9 @@
 
 .header {
    position: absolute;
+   z-index: 100;
    top: 0;
    left: 0;
-   z-index: 10;
    width: 100%;
    padding-top: em(20);
 
@@ -12,6 +12,10 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+   }
+
+   &__exit {
+      cursor: pointer;
    }
 
    &__logo {

@@ -1,0 +1,91 @@
+@import '/src/index.scss';
+
+.selectWrap {
+   position: relative;
+   min-height: em(56);
+
+   @media screen and (max-width:$sm) {
+      min-height: em(49);
+   }
+}
+
+.select {
+   position: absolute;
+   z-index: 10;
+   top: 0;
+   left: 0;
+   width: 100%;
+   gap: em(15);
+   border: rem(2) solid $pink;
+   border-radius: rem(30);
+   color: $gray;
+   min-height: em(56);
+   overflow: hidden;
+   transition: $transition;
+
+   &_active {
+      border-color: $gray;
+      background-color: $white;
+      color: $black;
+   }
+
+
+   &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: em(11) em(32);
+      cursor: pointer;
+
+      @media screen and (max-width:$sm) {
+         padding: em(12) em(24);
+      }
+   }
+
+   &>span {
+      flex-grow: 1;
+   }
+
+   &__arrow {
+      flex-shrink: 0;
+      transition: all 0.4s ease;
+
+      &_active {
+         rotate: 180deg;
+      }
+
+      @media screen and (max-width:$sm) {
+         width: em(25);
+         height: em(25);
+      }
+   }
+}
+
+.list {
+   overflow: hidden;
+   text-align: left;
+
+   &Wrap {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.3s ease;
+
+      &_active {
+         grid-template-rows: 1fr;
+      }
+   }
+
+   &__item {
+      padding: em(13) em(32);
+      cursor: pointer;
+
+      @media screen and (max-width:$sm) {
+         padding: em(10) em(24);
+      }
+
+      &:hover {
+         background-color: $pinkBold;
+         color: $white;
+      }
+   }
+}

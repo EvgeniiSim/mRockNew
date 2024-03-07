@@ -23,12 +23,13 @@ $ONYReatlist: 'ONYRealist';
 $Midnight: '23 secondsto midnight';
 
 ///// Font-Size variables
-$h1: em(40);
-$h2: em(32);
-$h3: em(50);
-$body1: em(24);
-$body2: em(16);
-$body3: em(14);
+$h1: em(120);
+$h2: em(80);
+$h3: em(65);
+$h4: em(40);
+$body1: em(16);
+$body2: em(14);
+$body3: em(12);
 
 ///// BreakPoints
 $xll: em(1200);
@@ -37,36 +38,36 @@ $md: em(768);
 $sm: em(576);
 $x-sm: em(420);
 
+////// Transition property
+$transition: all 0.2s ease;
+
 ////// Custom classes
+
 .title {
    font-family: $Midnight;
    text-transform: uppercase;
 }
 
-.select {
-   font-family: $MegaSansS !important;
-   border: rem(2) solid $pink !important;
-   border-radius: rem(100) !important;
-   min-height: em(56);
-
-   @media screen and (max-width:$sm) {
-      min-height: em(49);
-   }
-}
-
 .form {
 
    & input {
+      width: 100%;
       border: rem(2) solid $pink ;
       border-radius: rem(100);
       min-height: em(56);
       padding: em(17.5) em(32);
       background-color: transparent;
-      font-size: inherit;
-      color: $white;
-      transition: all 0.3s ease-in-out;
+      transition: all 0.2s ease;
 
-      &:hover {}
+      &:focus {
+         border-color: $gray;
+         background-color: $white;
+      }
+
+      &::placeholder {
+         opacity: 1;
+         color: $gray;
+      }
 
       @media screen and (max-width:$sm) {
          padding: em(15) em(24);
@@ -78,7 +79,6 @@ $x-sm: em(420);
       font-size: em(14);
    }
 }
-
 
 ///// Buttons hover 
 .btn {

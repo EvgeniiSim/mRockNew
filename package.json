@@ -14,7 +14,6 @@
    "dependencies": {
       "@emotion/react": "^11.11.4",
       "@emotion/styled": "^11.11.0",
-      "@mui/material": "^5.15.12",
       "@reduxjs/toolkit": "^2.2.1",
       "react": "^18.2.0",
       "react-dom": "^18.2.0",
@@ -33,6 +32,7 @@
       "gh-pages": "^6.1.1",
       "sass": "^1.71.1",
       "typescript": "^5.2.2",
-      "vite": "^5.1.4"
+      "vite": "^5.1.4",
+      "vite-plugin-webp-generator": "^0.0.5"
    }
 }

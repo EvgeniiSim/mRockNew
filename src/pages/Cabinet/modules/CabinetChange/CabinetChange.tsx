@@ -1,25 +1,21 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 
-import { ButtonsbgColor, TitleVariants } from "../../../../Types/enums";
+import { ButtonsBgColor, TitleVariants } from "../../../../Types/enums";
 import { ButtonsTags } from "../../../../Types/enums";
-// import { roles } from "../../../../utils/roles";
 
-// import { SelectChangeEvent } from "@mui/material";
 import Button from "../../../../components/UI/Button/Button";
 import Title from "../../../../components/UI/Title/Title";
 
-// import SelectArrow from "../../../../assets/icons/decor/selectArrow";
+import fileIcon from "../../../../assets/icons/fileInput/file.svg";
 
 import styles from "./CabinetChange.module.scss";
+import Select from "../../../../components/UI/Select/Select";
 
 const CabinetChange = () => {
-   // const [selectValue, setSelectvalue] = useState("");
    const [name, setName] = useState("");
    const [link, setLink] = useState("");
-
-   // const handleSelect = (e: SelectChangeEvent) => {
-   //    setSelectvalue(e.target.value);
-   // };
+   const [file, setFile] = useState<string | null>(null);
+   const [isSelectOpen, setIsSelectOpen] = useState<boolean>(false);
 
    const handleLinkChange = (e: ChangeEvent<HTMLInputElement>) => {
       let value = e.target.value;
@@ -35,6 +31,13 @@ const CabinetChange = () => {
       e.preventDefault();
    };
 
+   const handleFile = (e: ChangeEvent<HTMLInputElement>) => {
+      if (e.currentTarget.files && e.currentTarget.files.length > 0) {
+         const files = e.currentTarget.files;
+         setFile(files[0].name);
+      }
+   };
+
    return (
       <div className={styles.cabinet__inner}>
          <Title className={styles.cabinet__title} variant={TitleVariants.h1}>
@@ -46,19 +49,31 @@ const CabinetChange = () => {
             className={`${styles.cabinet__form} form`}
             onSubmit={handleSubmit}>
             <div className={styles.cabinet__formItem}>
-               <label htmlFor="name">Ваше имя</label>
+               <label htmlFor="name" className={styles.cabinet__formLabel}>
+                  Ваше имя
+               </label>
                <input
                   type="text"
                   className={`${styles.cabinet__formInput} input`}
                   placeholder="Ваше имя"
-                  name="Имя фамилия"
+                  name="name"
                   id="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                />
             </div>
             <div className={styles.cabinet__formItem}>
-               <label htmlFor="link-vk">Ссылка на Вконтакте</label>
+               <label className={styles.cabinet__formLabel}>
+                  Какой у вас инструмент
+               </label>
+               <Select isOpen={isSelectOpen} setIsSelectOpen={setIsSelectOpen}>
+                  Выберите
+               </Select>
+            </div>
+            <div className={styles.cabinet__formItem}>
+               <label className={styles.cabinet__formLabel} htmlFor="link-vk">
+                  Ссылка на Вконтакте
+               </label>
                <input
                   type="text"
                   className={`${styles.cabinet__formInput} input`}
@@ -69,11 +84,36 @@ const CabinetChange = () => {
                   onChange={handleLinkChange}
                />
             </div>
+            <div className={styles.cabinet__formItem}>
+               <label htmlFor="file" className={styles.cabinet__formLabel}>
+                  Фотография
+               </label>
+               <label htmlFor="file" className={styles.cabinet__fileLabel}>
+                  <span>{file ? file : "Файл"}</span>
+                  <img src={fileIcon} alt="Загрузить файл" />
+               </label>
+               <input
+                  type="file"
+                  style={{
+                     position: "absolute",
+                     left: "0",
+                     top: "0",
+                     width: "0",
+                     height: "0",
+                     border: "none",
+                     padding: "0",
+                  }}
+                  placeholder="Файл"
+                  name="file"
+                  id="file"
+                  onChange={handleFile}
+               />
+            </div>
          </form>
          <Button
             className={styles.cabinet__formSubmit}
             to="/"
-            bgColor={ButtonsbgColor.green}
+            bgColor={ButtonsBgColor.green}
             form="changeForm"
             tagType={ButtonsTags.submit}>
             Обновить
