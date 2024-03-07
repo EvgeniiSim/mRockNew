@@ -22,10 +22,7 @@ const router = createBrowserRouter(
             <Route path="change" element={<CabinetChange />} />
          </Route>
       </Route>
-   ),
-   {
-      basename: "/mRockNew",
-   }
+   )
 );
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
