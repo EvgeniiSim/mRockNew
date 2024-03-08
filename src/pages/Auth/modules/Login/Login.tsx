@@ -46,6 +46,7 @@ const Login = () => {
                      name="phone"
                      id="auth-phone"
                      value={phone}
+                     onFocus={() => setPhoneError(false)}
                      onChange={(e) => setPhone(e.target.value)}
                   />
                   {phoneError ? (
@@ -65,6 +66,7 @@ const Login = () => {
                         name="pwd"
                         id="auth-pwd"
                         value={pwd}
+                        onFocus={() => setPwdError(false)}
                         onChange={(e) => setPwd(e.target.value)}
                      />
                      <img
