@@ -1,7 +1,7 @@
 import { ReactNode, useMemo } from "react";
 import useWindowSize from "../../../hooks/useWindowSize";
 
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import classNames from "classnames";
 

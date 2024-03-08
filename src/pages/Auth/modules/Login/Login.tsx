@@ -22,6 +22,9 @@ const Login = () => {
 
    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
+
+      setPwdError(true);
+      setPhoneError(true);
    };
    return (
       <div className={styles.login}>
