@@ -9,11 +9,19 @@ interface SelectProps {
    children: string;
    isOpen: boolean;
    setIsSelectOpen: Dispatch<SetStateAction<boolean>>;
+   setIsSelectError?: Dispatch<SetStateAction<boolean>>;
+   isError?: boolean;
 }
 
 const data = ["Вокалист", "Клавишные", "Барабаны", "Гитарист"];
 
-const Select = ({ children, isOpen, setIsSelectOpen }: SelectProps) => {
+const Select = ({
+   children,
+   isOpen,
+   setIsSelectOpen,
+   isError,
+   setIsSelectError,
+}: SelectProps) => {
    const [selectedValue, setSelectedValue] = useState<string | null>(null);
    const selectRef = useOutsideClick(() => setIsSelectOpen(false));
 
@@ -26,7 +34,8 @@ const Select = ({ children, isOpen, setIsSelectOpen }: SelectProps) => {
 
    const selectClasses = cx({
       select: true,
-      select_active: isOpen,
+      _active: isOpen,
+      _error: isError,
    });
 
    return (
@@ -52,6 +61,7 @@ const Select = ({ children, isOpen, setIsSelectOpen }: SelectProps) => {
                         key={item}
                         className={styles.list__item}
                         onClick={() => {
+                           if (setIsSelectError) setIsSelectError(false);
                            if (
                               item.toLocaleLowerCase() !==
                               selectedValue?.toLocaleLowerCase()

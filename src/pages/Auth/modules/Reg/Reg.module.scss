@@ -1,7 +1,6 @@
 @import '/src/index.scss';
 
 .reg {
-   max-width: em(403);
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -9,7 +8,11 @@
    margin: 0 auto;
    color: $black;
    text-align: center;
-   padding: 0 em(10);
+   padding: em(100) em(10) 0 em(10);
+
+   @media screen and (max-width:$xl) {
+      padding: 0 em(10);
+   }
 
    &__title {
       font-size: $h2;
@@ -24,6 +27,11 @@
          font-size: em(40);
       }
    }
+}
+
+.content {
+   width: 100%;
+   max-width: em(403);
 }
 
 .form {
@@ -45,7 +53,7 @@
 }
 
 .button {
-   margin-bottom: em(32);
+   margin: 0 auto em(32) auto;
 }
 
 .warning {

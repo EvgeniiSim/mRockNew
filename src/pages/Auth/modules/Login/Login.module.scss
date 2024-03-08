@@ -1,0 +1,91 @@
+@import '/src/index.scss';
+
+.login {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   margin: 0 auto;
+   color: $black;
+   text-align: center;
+   padding: em(100) em(10) 0 em(10);
+
+   @media screen and (max-width:$xl) {
+      padding: 0 em(10);
+   }
+
+   &__title {
+      font-size: $h2;
+      color: $pink;
+      margin-bottom: em(34, 80);
+
+      @media screen and (max-width:$sm) {
+         font-size: $h3;
+      }
+
+      @media screen and (max-width:$x-sm) {
+         font-size: em(40);
+      }
+   }
+}
+
+.content {
+   width: 100%;
+   max-width: em(403);
+}
+
+.form {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   gap: em(16);
+
+   &__label {
+      display: block;
+      font-size: $body1;
+      color: $black;
+      margin-bottom: em(8);
+      padding-left: em(30);
+      text-align: left;
+
+      &._pwd {
+         padding: 0;
+      }
+   }
+
+   &__inputPwdWrap {
+      position: relative;
+
+      &>img {
+         position: absolute;
+         top: 50%;
+         right: em(25);
+         transform: translateY(-50%);
+         cursor: pointer;
+      }
+   }
+
+}
+
+.button {
+   flex-grow: 1;
+   margin: em(-15) auto 0 auto;
+}
+
+.forgotPwd {
+   display: block;
+   text-align: right;
+   font-size: em(14);
+   color: $gray;
+   padding: em(3) em(5) 0 0;
+}
+
+.getAccount {
+   font-size: $body2;
+   padding-bottom: em(40);
+
+   &>a {
+      display: block;
+      color: $pinkBold;
+   }
+}

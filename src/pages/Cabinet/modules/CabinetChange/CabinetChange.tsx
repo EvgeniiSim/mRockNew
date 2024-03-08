@@ -10,12 +10,23 @@ import fileIcon from "../../../../assets/icons/fileInput/file.svg";
 
 import styles from "./CabinetChange.module.scss";
 import Select from "../../../../components/UI/Select/Select";
+import classNames from "classnames";
 
 const CabinetChange = () => {
    const [name, setName] = useState("");
+
    const [link, setLink] = useState("");
+   const [linkError, setLinkError] = useState(false);
+
    const [file, setFile] = useState<string | null>(null);
+
    const [isSelectOpen, setIsSelectOpen] = useState<boolean>(false);
+
+   ///// Определяем стили "error" если имееются ошибке в форме
+   const linkInputClasses = classNames({
+      input: true,
+      _error: linkError,
+   });
 
    const handleLinkChange = (e: ChangeEvent<HTMLInputElement>) => {
       let value = e.target.value;
@@ -76,13 +87,17 @@ const CabinetChange = () => {
                </label>
                <input
                   type="text"
-                  className={`${styles.cabinet__formInput} input`}
+                  className={`${styles.cabinet__formInput} ${linkInputClasses}`}
                   placeholder="Ссылка на Вконтакте"
                   name="link"
                   id="link-vk"
                   value={link}
+                  onFocus={() => setLinkError(false)}
                   onChange={handleLinkChange}
                />
+               {linkError ? (
+                  <span className="error-message">Сслыка неверная</span>
+               ) : null}
             </div>
             <div className={styles.cabinet__formItem}>
                <label htmlFor="file" className={styles.cabinet__formLabel}>
@@ -98,10 +113,13 @@ const CabinetChange = () => {
                      position: "absolute",
                      left: "0",
                      top: "0",
-                     width: "0",
-                     height: "0",
+                     width: "0px",
+                     height: "0px",
                      border: "none",
                      padding: "0",
+                     minHeight: "0",
+                     opacity: "0",
+                     visibility: "hidden",
                   }}
                   placeholder="Файл"
                   name="file"

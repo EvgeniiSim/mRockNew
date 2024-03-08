@@ -1,7 +1,7 @@
 import { ReactNode, useMemo } from "react";
 import useWindowSize from "../../../hooks/useWindowSize";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import classNames from "classnames";
 
@@ -13,7 +13,7 @@ import styles from "./Buttton.module.scss";
 
 interface ButtonProps {
    children: string;
-   to: string;
+   to?: string;
    bgColor: ButtonsBgColor;
    tagType?: ButtonsTags;
    form?: string;
@@ -21,6 +21,7 @@ interface ButtonProps {
    fontSize?: number;
    currentSize?: number;
    className?: ReactNode;
+   onClick?: () => void;
 }
 
 const Button = ({
@@ -33,7 +34,9 @@ const Button = ({
    fontSize = 16,
    currentSize = 16,
    className,
+   onClick: callback,
 }: ButtonProps) => {
+   const navigate = useNavigate();
    const { width } = useWindowSize();
 
    ///// Уменьшаем размер шрифта на маленьких экранах
@@ -66,8 +69,15 @@ const Button = ({
 
    if (tagType === ButtonsTags.div) {
       content = (
-         <Link
-            to={to}
+         <div
+            onClick={() => {
+               if (callback) {
+                  callback();
+               }
+               if (to) {
+                  navigate(to);
+               }
+            }}
             className={`${styles.button} ${btnColor} ${
                className ? className : ""
             }`}
@@ -132,7 +142,7 @@ const Button = ({
                   </svg>
                </>
             )}
-         </Link>
+         </div>
       );
    } else if (tagType === ButtonsTags.submit) {
       content = (
@@ -147,7 +157,17 @@ const Button = ({
                fontSize: fontSizeCalculated,
                cursor: "pointer",
             }}>
-            <Link to={to}>{children}</Link>
+            <div
+               onClick={() => {
+                  if (callback) {
+                     callback();
+                  }
+                  if (to) {
+                     navigate(to);
+                  }
+               }}>
+               {children}
+            </div>
             {bgType === ButtonsBgVariants.narrow ? (
                <>
                   <svg

@@ -1,0 +1,56 @@
+@import '/src/index.scss';
+
+.loader {
+   display: flex;
+   flex-direction: column;
+   gap: em(36);
+   align-items: center;
+   justify-content: center;
+
+   @media screen and (max-width:$sm) {
+      gap: em(18);
+   }
+
+   &__img {
+      width: em(45);
+      height: em(45);
+      animation: rotate 3s infinite linear;
+   }
+
+   &__title {
+      font-size: $h2;
+      color: $pink;
+
+      @media screen and (max-width:$sm) {
+         font-size: $h3;
+      }
+
+      @media screen and (max-width:$x-sm) {
+         font-size: em(40);
+      }
+   }
+
+   &__subtitle {
+      font-size: $body1;
+      max-width: em(322);
+      padding-bottom: em(40);
+
+      @media screen and (max-width:$sm) {
+         font-size: em(12);
+      }
+
+      & a {
+         color: $pinkBold;
+      }
+   }
+}
+
+@keyframes rotate {
+   from {
+      rotate: 0;
+   }
+
+   to {
+      rotate: 360deg;
+   }
+}

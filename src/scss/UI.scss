@@ -59,6 +59,10 @@ $transition: all 0.2s ease;
       background-color: transparent;
       transition: all 0.2s ease;
 
+      &._error {
+         border-color: $red;
+      }
+
       &:focus {
          border-color: $gray;
          background-color: $white;
@@ -78,6 +82,15 @@ $transition: all 0.2s ease;
    @media screen and (max-width:$sm) {
       font-size: em(14);
    }
+}
+
+.error-message {
+   text-align: left;
+   width: 100%;
+   display: block;
+   font-size: em(14);
+   color: $red;
+   padding: em(3) 0 0 em(30);
 }
 
 ///// Buttons hover 

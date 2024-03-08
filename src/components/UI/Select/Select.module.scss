@@ -23,10 +23,14 @@
    overflow: hidden;
    transition: $transition;
 
-   &_active {
+   &._active {
       border-color: $gray;
       background-color: $white;
       color: $black;
+   }
+
+   &._error {
+      border-color: $red;
    }
 
 
